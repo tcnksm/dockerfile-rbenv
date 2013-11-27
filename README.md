@@ -2,10 +2,10 @@
 
 Prepare muliple rubies
 
-#### Vagrant
+#### Vagrant (for OS X)
 
 1. `vagrant up` with [dotcloud/docker/Vagrantfile](https://github.com/dotcloud/docker/blob/master/Vagrantfile)
-    - default `config.vm.synced_folder` is disabled
+    - By default Sync folder is disabled. Add `config.vm.synced_folder "." "/vagrant"` to Vagrantfile
 1. `vagrant ssh`
 1. `ln -s /vagrant/Dockerfile Dockerfile`
 
