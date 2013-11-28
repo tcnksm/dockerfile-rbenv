@@ -8,10 +8,11 @@ Prepare muliple rubies
     - By default Sync folder is disabled. Add `config.vm.synced_folder "." "/vagrant"` to Vagrantfile
 1. `vagrant ssh`
 1. `ln -s /vagrant/Dockerfile Dockerfile`
+1. `ln -s /vagrant/rbenvrc rbenvrc`
 
 #### Docker
 
-1. Login `docker `
+1. Login `docker run -i -t base-rbenv /bin/bash`
 1. Add tag to image `docker tag ID base-rbenv`
 1. Add tag with excuting dockerfile `docker build -t base-rbenv .`
 
