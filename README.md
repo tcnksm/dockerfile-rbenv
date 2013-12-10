@@ -1,27 +1,48 @@
 ## Dorker rbenv
 
-Prepare muliple rubies
+Prepare muliple versions of ruby and install base rubygems for each version. 
 
-#### Vagrant (for OS X)
+## Build rbenv-images
 
-1. `vagrant up` with [dotcloud/docker/Vagrantfile](https://github.com/dotcloud/docker/blob/master/Vagrantfile)
-    - By default Sync folder is disabled. Add `config.vm.synced_folder "." "/vagrant"` to Vagrantfile
+#### Vagrant
+
+Use [dotcloud/docker/Vagrantfile](https://github.com/dotcloud/docker/blob/master/Vagrantfile). It's easy to prepare vm envrionment installed docker. By default Sync folder is disabled. Add `config.vm.synced_folder "." "/vagrant"` to Vagrantfile.
+
 1. `vagrant ssh`
-1. `ln -s /vagrant/Dockerfile Dockerfile`
-1. `ln -s /vagrant/rbenvrc rbenvrc`
+1. `ln -s /vagrant/rbenv-image rbenv-image`
 
-#### Docker
+#### Build image
 
-1. Login `docker run -i -t base-rbenv /bin/bash`
-1. Add tag to image `docker tag ID base-rbenv`
-1. Add tag with excuting dockerfile `docker build -t base-rbenv .`
+```
+docker build -t rbenv rbenv-image/
+```
 
-#### Dorkerfile
+1. Pull base image (this time ubuntu)
+1. Install packages which are needed to build ruby
+1. Clone [rbenv]()
+1. Clone [ruby-build]()
+1. Install rubies which are defined at `rbenv-image/rubies.txt`
+    - You can modify `rubies.txt`
+    
+## Build rbenv-with-rubygems
 
-- `FROM`
-    - set base images
-- `RUN`
-    - excute command on the current image
+#### Vagrant
 
+```
+ln -s /vagrant/rbenv-with-rubygems-image rbenv-image
+```
 
+#### Build image
 
+```
+docker build -t rbenv-rubygems rbenv-with-rubygems-image
+```
+
+1. Pull rbenv-image (Created above)
+1. Install bundler
+1. Install rubygems which are defined in `Gemfile`
+    - You can modify `Gemfile`　
+
+#### Reference
+
+- [docker-plenv-vanilla](https://github.com/miyagawa/docker-plenv-vanilla)

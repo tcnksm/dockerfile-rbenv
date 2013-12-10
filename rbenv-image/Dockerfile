@@ -15,4 +15,8 @@ RUN ./root/.rbenv/plugins/ruby-build/install.sh
 ADD ./rbenvrc /etc/profile.d/rbenvrc
 ADD ./rubies.txt /root/rubies.txt
 
-RUN . /etc/profile.d/rbenvrc; export CONFIGURE_OPTS="--disable-install-doc"; xargs -L 1 rbenv install < /root/rubies.txt
+ENV PATH /root/.rbenv/bin:$PATH
+
+# Install multiple versions of ruby
+ENV CONFIGURE_OPTS --disable-install-doc
+RUN xargs -L 1 rbenv install < /root/rubies.txt
