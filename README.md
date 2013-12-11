@@ -1,6 +1,6 @@
 ## Dorker rbenv
 
-Image which is prepared muliple versions of ruby and install base rubygems for each version.
+Prepare image which is installed muliple versions of ruby and install base rubygems for each version.
 
 ## Usage
 
