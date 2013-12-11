@@ -1,6 +1,12 @@
 ## Dorker rbenv
 
-Prepare muliple versions of ruby and install base rubygems for each version. 
+Image which is prepared muliple versions of ruby and install base rubygems for each version.
+
+## Usage
+
+```
+docker run -v `pwd`/sample.sh:/sample.sh tcnksm/rbenv-rubygems sh -ex sample.sh
+```
 
 ## Build rbenv-images
 
@@ -46,3 +52,4 @@ docker build -t rbenv-rubygems rbenv-with-rubygems-image
 #### Reference
 
 - [docker-plenv-vanilla](https://github.com/miyagawa/docker-plenv-vanilla)
+- [Dockerを使ってJenkinsのジョブごとにテスト実行環境を分離する - orangain flavor](http://orangain.hatenablog.com/entry/jenkins-docker)
