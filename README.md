@@ -2,20 +2,17 @@
 
 Prepare image which is installed muliple versions of ruby and install base rubygems for each version.
 
-## Usage
+## Build rbenv image
 
-```
-docker run -v `pwd`/sample.sh:/sample.sh tcnksm/rbenv-rubygems sh -ex sample.sh
-```
+Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv)
 
-## Build rbenv-images
+#### OS X
 
-#### Vagrant
+Use Vagrant for VM running docker. Vagrant 1.4 has a Docker provisioner.
 
-Use [dotcloud/docker/Vagrantfile](https://github.com/dotcloud/docker/blob/master/Vagrantfile). It's easy to prepare vm envrionment installed docker. By default Sync folder is disabled. Add `config.vm.synced_folder "." "/vagrant"` to Vagrantfile.
-
+1. `vagrant up`
 1. `vagrant ssh`
-1. `ln -s /vagrant/rbenv-image rbenv-image`
+1. `cd /vagrant`
 
 #### Build image
 
