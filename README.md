@@ -42,7 +42,7 @@ Now you can use docker in VM.
 ### Build image
 
 ```
-docker build -t tcnksm/rbenv .
+docker build -t TAG .
 ```
 
 Dockerfile execute belows;
