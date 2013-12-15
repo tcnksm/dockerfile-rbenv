@@ -1,4 +1,4 @@
-## Dorker rbenv
+# Dorker rbenv
 
 Prepare image which is installed muliple versions of ruby and install base rubygems for each version.
 
@@ -6,47 +6,45 @@ Prepare image which is installed muliple versions of ruby and install base rubyg
 
 Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv)
 
-#### OS X
+### OS X
 
 Use Vagrant for VM running docker. Vagrant 1.4 has a Docker provisioner.
+Download it [here](http://www.vagrantup.com/downloads.html).
 
-1. `vagrant up`
-1. `vagrant ssh`
-1. `cd /vagrant`
-
-#### Build image
+After installed.
 
 ```
-docker build -t rbenv rbenv-image/
+vagrant up
 ```
+
+And login to VM.
+
+```
+vagrant ssh
+```
+
+Now you can use docker in VM.
+
+### Build image
+
+```
+docker build -t tcnksm/rbenv .
+```
+
+Dockerfile execute belows;
 
 1. Pull base image (this time ubuntu)
 1. Install packages which are needed to build ruby
-1. Clone [rbenv]()
-1. Clone [ruby-build]()
-1. Install rubies which are defined at `rbenv-image/rubies.txt`
-    - You can modify `rubies.txt`
-    
-## Build rbenv-with-rubygems
+1. Clone [rbenv](https://github.com/sstephenson/rbenv)
+1. Clone [ruby-build](https://github.com/sstephenson/ruby-build)
+1. Install multiple versions of ruby which are defined at `versions.txt`
+1. Install Bundler for each version
 
-#### Vagrant
-
-```
-ln -s /vagrant/rbenv-with-rubygems-image rbenv-image
-```
-
-#### Build image
-
-```
-docker build -t rbenv-rubygems rbenv-with-rubygems-image
-```
-
-1. Pull rbenv-image (Created above)
-1. Install bundler
-1. Install rubygems which are defined in `Gemfile`
-    - You can modify `Gemfile`　
-
-#### Reference
+## Reference
 
 - [docker-plenv-vanilla](https://github.com/miyagawa/docker-plenv-vanilla)
-- [Dockerを使ってJenkinsのジョブごとにテスト実行環境を分離する - orangain flavor](http://orangain.hatenablog.com/entry/jenkins-docker)
+- [Using Docker and Vagrant on Mac OS X with a Ruby on Rails application](http://blog.powpark.com/2013/11/11/using-docker-and-vagrant-on-mac-osx-for-a-ruby-on-rails-app/)
+
+## Author
+
+[tcnksm](https://twitter.com/deeeet)
