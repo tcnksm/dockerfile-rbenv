@@ -2,6 +2,20 @@
 
 Prepare image which is installed muliple versions of ruby and install base rubygems for each version.
 
+## Usage
+
+You can use this image for your project soon. It's uploaded docker.io, [tcnksm/rbenv](https://index.docker.io/u/tcnksm/rbenv/).
+
+```
+docker pull tcnksm/rbenv
+```
+
+or in Dockerfile
+
+```
+FROM tcnksm/rbenv
+```
+
 ## Build rbenv image
 
 Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv)
