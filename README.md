@@ -18,7 +18,7 @@ FROM tcnksm/rbenv
 
 ## Build rbenv image
 
-Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv)
+Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv). you can define ruby verion which you want to use in `versions.txt`.
 
 ### OS X
 
