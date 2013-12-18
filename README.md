@@ -16,6 +16,13 @@ or in Dockerfile
 FROM tcnksm/rbenv
 ```
 
+Run it !
+
+```
+docker run -i -t tcnksm/rbenv bash -l -c 'rbenv global 2.0.0-p353; bundle ...'
+```
+
+
 ## Build rbenv image
 
 Install multiple versions of ruby by [rbenv](https://github.com/sstephenson/rbenv). you can define ruby verion which you want to use in `versions.txt`.
