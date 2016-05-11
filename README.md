@@ -1,7 +1,7 @@
 Dockerfile-rbenv [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/tcnksm/dockerfile-rbenv/blob/master/LICENCE)
 ====
 
-Dockerfile to prepare image which is installed muliple versions of ruby and bundler for each versions. 
+Dockerfile to prepare image which is installed multiple versions of ruby and bundler for each versions. 
 
 ## Usage
 
